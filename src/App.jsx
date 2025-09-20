@@ -6,7 +6,7 @@ import Nonveg from "./Nonveg";
 import NotFound from "./NotFound";
 import "./App.css";
 import { useSelector } from "react-redux";
-import Cart from "./cart";
+import Cart from "./Cart";
 import { ToastContainer } from "react-toastify";
 import Orders from "./Orders";
 import PaymentPage from "./PaymentPage";
