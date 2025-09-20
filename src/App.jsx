@@ -17,9 +17,9 @@ import ContactUs from "./ContactUs";
 // ✅ Correct place for these imports
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import SignUp from "./SignUp";
 
 import Login from "./Login";
-import SignUp from "./SignUp";
 
 import "react-toastify/dist/ReactToastify.css";
 function App() {
