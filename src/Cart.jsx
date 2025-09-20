@@ -28,8 +28,7 @@ const getCouponDiscount = (code, total) => {
     case "FLAT30":
       discountPerc = 30;
       break;
-    default:
-      discountPerc = 0;
+    
   }
   const discountAmount = (total * discountPerc) / 100;
   return {

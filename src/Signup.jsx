@@ -76,7 +76,7 @@ function SignUp() {
         <form onSubmit={handleSubmit} noValidate>
           {/* Full Name */}
           <div className="form-group">
-            <label>Full Name</label>
+            <label >Full Name</label>
             <input
               type="text"
               name="fullname"
@@ -90,8 +90,9 @@ function SignUp() {
 
           {/* Email */}
           <div className="form-group">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
