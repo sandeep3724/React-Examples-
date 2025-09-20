@@ -1,0 +1,24 @@
+.contact-card {
+  background: linear-gradient(135deg, #fef9f9, #f0f7ff);
+}
+
+.contact-card input,
+.contact-card textarea {
+  border-radius: 0.5rem;
+}
+
+.contact-card button {
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+
+.contact-card button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+iframe {
+  border: 0;
+  border-radius: 1rem;
+  min-height: 400px;
+}

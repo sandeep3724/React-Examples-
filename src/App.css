@@ -1,0 +1,101 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+#root {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* 🌈 Premium Navbar */
+.navbar {
+  background: rgba(229, 231, 236, 0.85); /* transparent gradient */
+  background: black;
+  backdrop-filter: blur(12px); /* glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand with gradient text */
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🔗 Navbar links */
+.navbar .nav-link {
+  color: #fff !important;
+  margin: 0 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #ffc107 !important;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔥 Active nav link */
+.navbar .nav-link.active {
+  font-weight: bold;
+  background: #ffc107;
+  color: #000 !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+  transform: scale(1.05);
+}
+
+/* 🛒 Cart link pulse when item added */
+.cart-link.added {
+  animation: pulse 0.6s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ℹ️ Info Icon */
+.info-icon {
+  font-size: 14px;
+  vertical-align: middle;
+  margin-left: 4px;
+  display: inline-block;
+  cursor: pointer;
+  animation: bounce 1.2s infinite ease-in-out; /* Always bouncing */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.info-icon:hover {
+  color: #ffc107;
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}

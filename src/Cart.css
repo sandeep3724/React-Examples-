@@ -1,0 +1,232 @@
+/* =====================
+   GLOBAL STYLING
+===================== */
+body {
+  background: linear-gradient(135deg, #f9f9f9, #eef1f5);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Glassmorphic Card */
+.card {
+  border-radius: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient Heading */
+.text-gradient {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* =====================
+   CART ITEMS
+===================== */
+.cart-item-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.cart-item-card:hover {
+  transform: scale(1.02);
+  background: #fdfdfd;
+}
+
+.cart-img {
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Item text */
+.cart-item-card h5 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.cart-item-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+button {
+  transition: all 0.25s ease;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Quantity Buttons */
+.btn-outline-success,
+.btn-outline-danger,
+.btn-outline-secondary {
+  border: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-outline-success:hover {
+  background: #28a745;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background: #e63946;
+  color: white;
+}
+
+.btn-outline-secondary:hover {
+  background: #6c757d;
+  color: white;
+}
+
+/* Checkout Button */
+.btn-success.w-100 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 14px;
+  background: linear-gradient(90deg, #20c997, #0d6efd);
+  border: none;
+  box-shadow: 0 6px 15px rgba(32, 201, 151, 0.4);
+}
+
+.btn-success.w-100:hover {
+  background: linear-gradient(90deg, #0d6efd, #20c997);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+}
+
+/* =====================
+   COUPON SECTION
+===================== */
+.coupon-section input {
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  padding: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.coupon-section input:focus {
+  border-color: #ff416c;
+  box-shadow: 0px 0px 6px rgba(255, 65, 108, 0.5);
+}
+
+.coupon-section button {
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0px 6px 15px rgba(255, 75, 43, 0.4);
+}
+
+.coupon-section button:hover {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  box-shadow: 0px 8px 20px rgba(255, 65, 108, 0.5);
+}
+
+/* =====================
+   ORDER SUMMARY
+===================== */
+.order-summary {
+  background: #f8faff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.order-summary h4 {
+  font-weight: 700;
+  color: #444;
+}
+
+.order-summary p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Final Price */
+.order-summary h3 {
+  font-weight: 800;
+  color: #ff416c;
+  font-size: 1.8rem;
+}
+
+/* =====================
+   QR SECTION
+===================== */
+.qr-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.qr-section h4 {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.qr-section button {
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border: none;
+  color: #fff;
+  box-shadow: 0px 8px 20px rgba(255, 65, 108, 0.5);
+}
+
+.qr-section button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .cart-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .coupon-section {
+    flex-direction: column;
+  }
+
+  .coupon-section input {
+    margin-bottom: 10px;
+  }
+}
