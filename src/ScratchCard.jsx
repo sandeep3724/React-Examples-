@@ -139,7 +139,7 @@ const ScratchCard = ({ orderId, onClose }) => {
               </>
             ) : (
               <p className="small opacity-75 text-white">
-                Scratch to reveal your gift
+                TAP ANYWHERE
               </p>
             )}
           </div>

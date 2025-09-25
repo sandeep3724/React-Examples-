@@ -14,11 +14,11 @@ function Home() {
     <div className="home-container">
       {/* Background Video/Image */}
       <video autoPlay loop muted className="home-bg-video">
-        <source src="/public/igloo.mp4" type="video/mp4" />
+        <source src="/igloo.mp4" type="video/mp4" />
         {/* fallback image if video fails */}
       </video>
 
-      {/* Overlay for dark effect   𝖧𝖺𝗒𝖺𝗆, 𝖺𝗋𝗋𝗂𝗏𝖾𝖽 𝗐𝗂𝗍𝗁 𝗁𝗎𝗇𝗀𝖾𝗋 !, 𝖤𝗑𝗉𝗅𝗈𝗋𝖾𝖳𝗒𝗉𝖾 𝗌𝗈𝗆𝖾𝗍𝗁𝗂𝗇𝗀 𝗍𝗈 𝗌𝗍𝖺𝗋𝗍 */}
+      {/* Overlay for dark effect  */}
       <div className="overlay"></div>
 
       {/* Content */}

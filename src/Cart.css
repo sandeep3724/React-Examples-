@@ -2,68 +2,103 @@
    GLOBAL STYLING
 ===================== */
 body {
-  background: linear-gradient(135deg, #f9f9f9, #eef1f5);
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
   font-family: "Poppins", sans-serif;
-  color: #333;
+  color: #2c2c2c;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-/* Glassmorphic Card */
+/* Smooth fade-in animation */
+* {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   GLASSMORPHIC CARD
+===================== */
 .card {
   border-radius: 20px;
   padding: 25px;
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Gradient Heading */
+/* =====================
+   GRADIENT HEADING
+===================== */
 .text-gradient {
-  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  background: linear-gradient(90deg, #ff416c, #ff4b2b, #ff9a76);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  font-size: 2.2rem;
+  letter-spacing: 1.2px;
   text-align: center;
+  text-shadow: 0 2px 6px rgba(255, 65, 108, 0.2);
 }
 
 /* =====================
    CART ITEMS
 ===================== */
 .cart-item-card {
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 18px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
+  border: 1px solid #f1f1f1;
 }
 
 .cart-item-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   background: #fdfdfd;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .cart-img {
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.cart-item-card:hover .cart-img {
+  transform: scale(1.08);
 }
 
 /* Item text */
 .cart-item-card h5 {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  font-size: 1rem;
 }
 
 .cart-item-card p {
   color: #777;
   font-size: 14px;
+  margin: 0;
 }
 
 /* =====================
@@ -71,58 +106,62 @@ body {
 ===================== */
 button {
   transition: all 0.25s ease;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
   font-weight: 600 !important;
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
 }
 
-/* Quantity Buttons */
+/* Fancy shadows for outline buttons */
 .btn-outline-success,
 .btn-outline-danger,
 .btn-outline-secondary {
   border: none;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+/* Hover Effects */
 .btn-outline-success:hover {
-  background: #28a745;
+  background: #20c997;
   color: white;
+  box-shadow: 0 8px 20px rgba(32, 201, 151, 0.4);
 }
 
 .btn-outline-danger:hover {
   background: #e63946;
   color: white;
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
 }
 
 .btn-outline-secondary:hover {
   background: #6c757d;
   color: white;
+  box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
 }
 
 /* Checkout Button */
 .btn-success.w-100 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  border-radius: 15px;
-  padding: 14px;
+  border-radius: 18px;
+  padding: 15px;
   background: linear-gradient(90deg, #20c997, #0d6efd);
   border: none;
-  box-shadow: 0 6px 15px rgba(32, 201, 151, 0.4);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
 }
 
 .btn-success.w-100:hover {
   background: linear-gradient(90deg, #0d6efd, #20c997);
-  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+  box-shadow: 0 10px 25px rgba(32, 201, 151, 0.5);
 }
 
 /* =====================
    COUPON SECTION
 ===================== */
 .coupon-section input {
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1.5px solid #ccc;
   padding: 12px;
   font-size: 15px;
@@ -131,21 +170,23 @@ button:hover {
 
 .coupon-section input:focus {
   border-color: #ff416c;
-  box-shadow: 0px 0px 6px rgba(255, 65, 108, 0.5);
+  box-shadow: 0px 0px 8px rgba(255, 65, 108, 0.5);
 }
 
 .coupon-section button {
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(90deg, #ff416c, #ff4b2b);
   color: white;
   font-weight: 600;
   border: none;
-  box-shadow: 0px 6px 15px rgba(255, 75, 43, 0.4);
+  padding: 12px 20px;
+  box-shadow: 0px 6px 15px rgba(255, 65, 108, 0.4);
 }
 
 .coupon-section button:hover {
   background: linear-gradient(90deg, #ff4b2b, #ff416c);
   box-shadow: 0px 8px 20px rgba(255, 65, 108, 0.5);
+  transform: translateY(-2px);
 }
 
 /* =====================
@@ -153,10 +194,15 @@ button:hover {
 ===================== */
 .order-summary {
   background: #f8faff;
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.05);
-  margin-top: 20px;
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 22px;
+  transition: all 0.3s ease;
+}
+
+.order-summary:hover {
+  box-shadow: inset 0px 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .order-summary h4 {
@@ -171,40 +217,45 @@ button:hover {
 
 /* Final Price */
 .order-summary h3 {
-  font-weight: 800;
+  font-weight: 900;
   color: #ff416c;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(255, 65, 108, 0.2);
 }
 
 /* =====================
    QR SECTION
 ===================== */
 .qr-section {
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .qr-section h4 {
   font-weight: 700;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .qr-section button {
   border-radius: 30px;
-  padding: 12px 30px;
+  padding: 14px 32px;
   font-size: 1.1rem;
   font-weight: 700;
   background: linear-gradient(135deg, #ff416c, #ff4b2b);
   border: none;
   color: #fff;
-  box-shadow: 0px 8px 20px rgba(255, 65, 108, 0.5);
+  box-shadow: 0px 10px 25px rgba(255, 65, 108, 0.5);
 }
 
 .qr-section button:hover {
   background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0px 12px 28px rgba(255, 65, 108, 0.6);
 }
 
 /* =====================
@@ -214,12 +265,13 @@ button:hover {
   .cart-item-card {
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
   }
 
   .cart-img {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .coupon-section {
@@ -227,6 +279,6 @@ button:hover {
   }
 
   .coupon-section input {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 }

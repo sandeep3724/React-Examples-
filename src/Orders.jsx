@@ -61,11 +61,17 @@ function Orders() {
   if (orders.length === 0) {
     return (
       <div
+      
         className="container d-flex flex-column align-items-center justify-content-center min-vh-100"
         style={{
           background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
         }}
       >
+         <img 
+      src="/order.svg"   // 👈 replace with your image path
+      alt="No Orders"
+      style={{ width: "250px", maxWidth: "100%", marginBottom: "20px" }}
+    />
         <h2 className="text-muted mb-3">📦 No past orders found...</h2>
         <a href="/" className="btn btn-lg btn-warning shadow-sm fw-semibold">
           🛒 Shop Now
@@ -76,7 +82,7 @@ function Orders() {
 
   return (
     <div className="container py-5" style={{ marginTop: "80px" }}>
-      <h2 className="text-center text-primary fw-bold mb-5">📜 Order History</h2>
+      <h2 className="text-center text-primary fw-bold mb-5">📜 Orders History</h2>
 
       {orders.map((order) => {
         const totalDiscount = order.totalDiscount || 0;
@@ -91,6 +97,7 @@ function Orders() {
           >
             <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center py-3">
               <div>
+               
                 <h6 className="mb-1 fw-semibold">
                   🆔 Order ID: {order.id || "N/A"}{" "}
                   <span className={getStatusBadge(order.status)}>
@@ -98,7 +105,7 @@ function Orders() {
                   </span>
                 </h6>
                 <small className="text-light">
-                  📅 {formatDate(order.date)} ⏰ {formatTime(order.date)}
+                  📅 Date: {formatDate(order.date)} /⏰ Time {formatTime(order.date)}
                 </small>
               </div>
               <button

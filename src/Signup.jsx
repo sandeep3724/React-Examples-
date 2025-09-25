@@ -32,20 +32,20 @@ function SignUp() {
     if (!formData.email.trim()) {
       tempErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = "Enter a valid email";
+      tempErrors.email = " Enter a valid email";
     }
     if (!formData.password.trim()) {
       tempErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      tempErrors.password = "Password must be at least 6 characters";
+      tempErrors.password = "ⓘ Password must be at least 6 characters";
     }
     if (!formData.phone.trim()) {
-      tempErrors.phone = "Phone number is required";
+      tempErrors.phone = " Phone number is required";
     } else if (!/^\d{10}$/.test(formData.phone)) {
-      tempErrors.phone = "Enter a valid 10-digit phone number";
+      tempErrors.phone = "ⓘ Enter a valid 10-digit number";
     }
-    if (!formData.gender) tempErrors.gender = "Please select gender";
-    if (!formData.address.trim()) tempErrors.address = "Address is required";
+    if (!formData.gender) tempErrors.gender = " Please select gender";
+    if (!formData.address.trim()) tempErrors.address = " Address is required";
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
@@ -83,7 +83,7 @@ function SignUp() {
               value={formData.fullname}
               onChange={handleChange}
               className={errors.fullname ? "error-input" : ""}
-              placeholder="Enter your full name"
+              placeholder=" Enter your full name"
             />
             {errors.fullname && <small className="error-text">{errors.fullname}</small>}
           </div>
@@ -98,7 +98,7 @@ function SignUp() {
               value={formData.email}
               onChange={handleChange}
               className={errors.email ? "error-input" : ""}
-              placeholder="Enter your email"
+              placeholder=" Enter your email"
             />
             {errors.email && <small className="error-text">{errors.email}</small>}
           </div>
@@ -112,7 +112,7 @@ function SignUp() {
               value={formData.password}
               onChange={handleChange}
               className={errors.password ? "error-input" : ""}
-              placeholder="Enter your password"
+              placeholder=" Enter your password"
             />
             {errors.password && <small className="error-text">{errors.password}</small>}
           </div>
@@ -126,7 +126,7 @@ function SignUp() {
               value={formData.phone}
               onChange={handleChange}
               className={errors.phone ? "error-input" : ""}
-              placeholder="Enter your phone number"
+              placeholder=" Enter your phone number"
             />
             {errors.phone && <small className="error-text">{errors.phone}</small>}
           </div>
@@ -156,7 +156,7 @@ function SignUp() {
               value={formData.address}
               onChange={handleChange}
               className={errors.address ? "error-input" : ""}
-              placeholder="Enter your address"
+              placeholder=" Enter your address"
             />
             {errors.address && <small className="error-text">{errors.address}</small>}
           </div>

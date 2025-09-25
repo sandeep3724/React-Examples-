@@ -6,7 +6,7 @@ import Nonveg from "./Nonveg";
 import NotFound from "./NotFound";
 import "./App.css";
 import { useSelector } from "react-redux";
-import Cart from "./Cart";
+import Cart from "./cart";
 import { ToastContainer } from "react-toastify";
 import Orders from "./Orders";
 import PaymentPage from "./PaymentPage";
@@ -14,7 +14,6 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
-// ✅ Correct place for these imports
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import SignUp from "./SignUp";
@@ -63,6 +62,8 @@ function App() {
 
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
+
+                
                 
                 <li className="nav-item">
                   <NavLink
@@ -84,6 +85,7 @@ function App() {
                     AboutUs 
                   </NavLink>
                 </li>
+                
                 <li className="nav-item">
                   <NavLink
                     to="/contactus"
@@ -104,6 +106,7 @@ function App() {
                     🥗 Veg 
                   </NavLink>
                 </li>
+                
                 <li className="nav-item">
                   <NavLink
                     to="/nonveg"
@@ -175,9 +178,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            
             <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/contactus" element={<ContactUs />} />
             <Route path="/veg" element={<Veg />} />
             <Route path="/nonveg" element={<Nonveg />} />
             <Route path="/cart" element={<Cart />} />

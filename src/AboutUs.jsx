@@ -55,7 +55,7 @@ function AboutUs() {
 
   return (
     <div className="about-container mt-5">
-      <h2 className="main-title text-center">About Hayam Store</h2>
+      <h2 className="main-title text-center">About Hayam Mart</h2>
       <p className="main-subtitle text-center">
         Discover who we are, what we stand for, and why our customers trust us.
       </p>

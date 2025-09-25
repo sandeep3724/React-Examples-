@@ -28,7 +28,6 @@ const getCouponDiscount = (code, total) => {
     case "FLAT30":
       discountPerc = 30;
       break;
-    
   }
   const discountAmount = (total * discountPerc) / 100;
   return {
@@ -90,73 +89,83 @@ function Cart() {
     }
   };
 
- const confirmOrder = (paymentMethod) => {
-  if (cartItems.length === 0) {
-    Swal.fire("Cart Empty", "Please add items before placing an order!", "warning");
-    return;
-  }
+  const confirmOrder = (paymentMethod) => {
+    if (cartItems.length === 0) {
+      Swal.fire("Cart Empty", "Please add items before placing an order!", "warning");
+      return;
+    }
 
-  // Order details
-  const now = new Date();
-const newOrder = {
-  id: Date.now(),
-  date: now.toISOString(),   // save full timestamp
-  status: "Pending",
-  items: cartItems,
-  subtotal: calculateTotal(cartItems),
-  shipping: 40,
-  tax: 18,
-  manualDiscount: buttonDiscountAmount,
-  couponDiscount: couponResult.discountAmount,
-  totalDiscount: buttonDiscountAmount + couponResult.discountAmount,
-  finalPrice: finalPrice,
-  paymentMethod,
-};
+    // Order details
+    const now = new Date();
+    const newOrder = {
+      id: Date.now(),
+      date: now.toISOString(), // save full timestamp
+      status: "Pending",
+      items: cartItems,
+      subtotal: calculateTotal(cartItems),
+      shipping: 40,
+      tax: 18,
+      manualDiscount: buttonDiscountAmount,
+      couponDiscount: couponResult.discountAmount,
+      totalDiscount: buttonDiscountAmount + couponResult.discountAmount,
+      finalPrice: finalPrice,
+      paymentMethod,
+    };
 
+    // Save order
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    localStorage.setItem("orders", JSON.stringify([newOrder, ...orders]));
 
-  // Save order
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
-  localStorage.setItem("orders", JSON.stringify([newOrder, ...orders]));
+    // Email params
+    const templateParams = {
+      order_id: newOrder.id,
+      order_date: newOrder.date,
+      email: customerEmail,
+      items: newOrder.items.map((item) => ({
+        name: item.name,
+        qty: item.quantity,
+        price: item.price,
+        image_url: item.image,
+      })),
+      cost: {
+        shipping: newOrder.shipping,
+        tax: newOrder.tax,
+        discount: newOrder.totalDiscount,
+        total: newOrder.finalPrice,
+      },
+    };
 
-  // Email params
-  const templateParams = {
-    order_id: newOrder.id,
-    order_date: `${newOrder.orderDate} ${newOrder.orderTime}`,
-    email: customerEmail,
-    items: newOrder.items.map((item) => ({
-      name: item.name,
-      qty: item.quantity,
-      price: item.price,
-      image_url: item.image,
-    })),
-    cost: {
-      shipping: newOrder.shipping,
-      tax: newOrder.tax,
-      discount: newOrder.totalDiscount,
-      total: newOrder.finalPrice,
-    },
+    // Send email
+    emailjs
+      .send("service_hb0i6a9", "template_olni9wf", templateParams, "9sTIa1QgxqfcPR6e-")
+      .then(() => {
+        setShowConfetti(true);
+        Swal.fire("✅ Success!", "Order placed & email sent 🎉", "success");
+        dispatch(clearCart());
+        setScratchOrderId(newOrder.id);
+        setTimeout(() => setShowScratch(true), 1200);
+      })
+      .catch(() => {
+        Swal.fire("⚠️ Warning", "Order saved but email failed!", "warning");
+        dispatch(clearCart());
+        setScratchOrderId(newOrder.id);
+        setTimeout(() => setShowScratch(true), 1200);
+      });
   };
 
-  // Send email
-  emailjs
-    .send("service_hb0i6a9", "template_olni9wf", templateParams, "9sTIa1QgxqfcPR6e-")
-    .then(() => {
-      setShowConfetti(true);
-      Swal.fire("✅ Success!", "Order placed & email sent 🎉", "success");
-      dispatch(clearCart());
-      setScratchOrderId(newOrder.id);
-      setTimeout(() => setShowScratch(true), 1200);
-    })
-    .catch(() => {
-      Swal.fire("⚠️ Warning", "Order saved but email failed!", "warning");
-      dispatch(clearCart());
-      setScratchOrderId(newOrder.id);
-      setTimeout(() => setShowScratch(true), 1200);
-    });
-};
-
-
   const handlePlaceOrder = () => {
+    // 🔑 Check if user is logged in
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      toast.error("⚠️ Please login before checkout", {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
+      navigate("/login");
+      return;
+    }
+
     if (cartItems.length === 0) {
       toast.error("❌ Cart is empty!", { position: "top-center" });
       return;
@@ -187,10 +196,15 @@ const newOrder = {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container py-5" style={{ marginTop: "80px" }}>
       {cartItems.length === 0 ? (
         <div className="text-center py-5">
-          <h2 className="text-muted">🛒 Your cart is empty</h2>
+          <img
+            src="/cart.svg"
+            alt="Empty Cart"
+            style={{ width: "280px", maxWidth: "100%", marginBottom: "20px" }}
+          />
+          <h2 className="text-muted">🛒 Your cart is empty..</h2>
         </div>
       ) : (
         <div className="row">

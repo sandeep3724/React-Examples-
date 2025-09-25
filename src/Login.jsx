@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "./store";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,13 +15,13 @@ function Login() {
   const [passwordError, setPasswordError] = useState("");
 
   const currentUser = useSelector((state) => state.users.currentUser);
+  const loginError = useSelector((state) => state.users.error); // ✅ Redux error
 
   // ✅ Email validation
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!value) return "Email is required";
-    if (!emailRegex.test(value))
-      return " Enter valid email with '@')";
+    if (!emailRegex.test(value)) return "Enter valid email with '@'";
     return "";
   };
 
@@ -30,19 +30,17 @@ function Login() {
     const passwordRegex =
       /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
     if (!value) return "Password is required";
-    if (!passwordRegex.test(value))
-      return "Enter strong password...";
+    if (!passwordRegex.test(value)) return "Enter strong password...";
     return "";
   };
 
-  // ✅ Handle email input
+  // ✅ Handle input changes
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
     setEmailError(validateEmail(value));
   };
 
-  // ✅ Handle password input
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
@@ -68,7 +66,11 @@ function Login() {
   // ✅ Watch login result
   useEffect(() => {
     if (currentUser) {
-      navigate("/"); // redirect to home page
+      // Store login flag in localStorage for checkout protection
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userEmail", currentUser.email);
+
+      navigate("/"); // redirect to home page after login
     }
   }, [currentUser, navigate]);
 
@@ -108,6 +110,13 @@ function Login() {
           <button type="submit" className="login-btn">
             ✅ Login
           </button>
+
+          {/* ❌ Error message */}
+          {loginError && (
+            <p className="error-text" style={{ color: "red", marginTop: "10px" }}>
+              {loginError}
+            </p>
+          )}
         </form>
 
         <p className="signup-text">

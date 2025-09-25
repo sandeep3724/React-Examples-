@@ -33,7 +33,7 @@ function Veg() {
   // 🟢 Toast when adding item (this will be passed to VegCard)
   const handleAddToCart = (itemName) => {
     toast.success(`🥦 ${itemName} added to cart!`, {
-      position: "top-left",
+      position: "top-right ",
       autoClose: 2000,
       theme: "colored",
     });
