@@ -1,25 +1,26 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Veg from "./Veg";
-import Nonveg from "./Nonveg";
-import NotFound from "./NotFound";
+import Home from "./Home.jsx";
+import Veg from "./Veg.jsx";
+import Nonveg from "./Nonveg.jsx";
+import NotFound from "./NotFound.jsx";
 import "./App.css";
 import { useSelector } from "react-redux";
-import Cart from "./cart.jsx";
+import Cart from "./Cart.jsx";
 import { ToastContainer } from "react-toastify";
-import Orders from "./Orders";
-import PaymentPage from "./PaymentPage";
+import Orders from "./Orders.jsx";
+import PaymentPage from "./PaymentPage.jsx";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import AboutUs from "./AboutUs";
-import ContactUs from "./ContactUs";
+import AboutUs from "./AboutUs.jsx";
+import ContactUs from "./ContactUs.jsx";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import SignUp from "./SignUp.jsx";
-import Login from "./Login";
-
+import Login from "./Login.jsx";
 import "react-toastify/dist/ReactToastify.css";
+
+
 function App() {
   const totalQuantity = useSelector((state) =>
     state.Cart.reduce((sum, item) => sum + item.quantity, 0)
