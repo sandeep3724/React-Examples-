@@ -6,7 +6,7 @@ import Nonveg from "./Nonveg";
 import NotFound from "./NotFound";
 import "./App.css";
 import { useSelector } from "react-redux";
-import Cart from "./Cart.jsx";
+import Cart from "./cart.jsx";
 import { ToastContainer } from "react-toastify";
 import Orders from "./Orders";
 import PaymentPage from "./PaymentPage";
@@ -16,10 +16,7 @@ import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-
-import SignUp from "./Signup.jsx";
-
-
+import SignUp from "./SignUp.jsx";
 import Login from "./Login";
 
 import "react-toastify/dist/ReactToastify.css";
