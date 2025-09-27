@@ -168,6 +168,18 @@ function App() {
                    🔑 Login
                   </NavLink>
                 </li>
+
+                    <li className="nav-item">
+                      <NavLink
+                        to="/signup"
+                        className={({ isActive }) =>
+                          `nav-link ${isActive ? "text-warning fw-bold" : ""}`
+                        }
+                      >
+                        📝 SignUp
+                      </NavLink>
+                    </li>
+
               </ul>
             </div>
           </div>
